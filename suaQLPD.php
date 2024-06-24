@@ -8,7 +8,7 @@ $sql = "SELECT * FROM phieu_dat WHERE ma_phieu_dat = '" . $usern . "'";
 $kq = mysqli_query($conn, $sql) or die("Không thể sửa phiếu đặt" . mysqli_error());
 $row = mysqli_fetch_array($kq);
 ?>
-<link rel="stylesheet" href="chinhsua.css" type="text/css" />
+<link rel="stylesheet" href="css/chinhsua.css" type="text/css" />
 
 <form enctype="multipart/form-data" action="xulysuaQLPD.php" name="xulysuaQLPD" method="post">
     <div class="text">

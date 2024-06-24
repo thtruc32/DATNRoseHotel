@@ -2,19 +2,39 @@
 include("ketnoi.php");
 ?>
 <style>
-    a>button{
-        color:#D71313;
-        font-weight:bolder;
-        border:none;
-        background-color: #BAD7E9;
+    .btthem>button {
+        display: flex;
+        color: #fafafa;
+        font-weight: bolder;
+        border: none;
+        background-color: #D04848;
         border-radius: 3px;
-        margin-left: 30px;
+        margin-left: 15px;
+        margin-top: 20px;
+        gap: 2px;
+        justify-content: center;
+        align-items: center;
     }
-    h6{
+
+    h6 {
         font-size: 1.5rem;
         font-family: Tahoma;
         color: #40679E;
-        font-weight: 600; 
+        font-weight: 600;
+        margin: 2px;
+    }
+    .pencil {
+        color: white;
+        border: none;
+        background-color: #FFC100;
+        border-radius: 3px;
+    }
+
+    .trash{
+        color: white;
+        border: none;
+        background-color: #65B741;
+        border-radius: 3px;
     }
     .table th, .table td {
         text-align: center; /* Căn giữa dữ liệu */
@@ -28,7 +48,8 @@ include("ketnoi.php");
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6>QUẢN LÝ VẬT TƯ</h6>
             </div>
-            <a href="themQLVT.php"><button>+ Thêm</button></a>
+            <a class="btthem" href="themQLVT.php"><button>
+            <ion-icon name="add-circle"></ion-icon>Thêm</button></a>
 
             <div class="table-responsive p-3">
                 <table class="table align-items-center table-flush" id="dataTable">
@@ -56,7 +77,8 @@ include("ketnoi.php");
             echo "<td>" . $row["so_luong_tong"] . "</td>";
             echo "<td>" . $row["so_luong_ton"] . "</td>";
             echo "<td>
-                    <a href='suaQLVT.php?user=$usern'><button><ion-icon name='pencil'></ion-icon></button></a>
+                    <a href='suaQLVT.php?user=$usern'><button class='pencil'><ion-icon name='pencil'></ion-icon></button></a>
+                    <a href='xoaQLVT.php?user=$usern'><button class='trash'><ion-icon name='trash'></ion-icon></button></a>
                 </td>";
             echo "</tr>";
         }

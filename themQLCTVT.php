@@ -3,7 +3,7 @@ include ("header.php");
 include ("ketnoi.php");
 ?>
 
-<link rel="stylesheet" href="chinhsua.css" type="text/css" />
+<link rel="stylesheet" href="css/chinhsua.css" type="text/css" />
 <form enctype="multipart/form-data" action="xulythemQLCTVT.php" name="xulythemQLCTVT" method="post">
 
     <div class="text">

@@ -8,10 +8,11 @@ $gioi_tinh = $_POST["gioi_tinh"];
 $cccd = $_POST["cccd"];
 $sdtkh = $_POST["sdtkh"];
 $emailkh = $_POST["emailkh"];
+$matkhaukh = $_POST["matkhaukh"];
 $dia_chi = $_POST["dia_chi"];
 
 // Update academic department in the database
-$sql = "UPDATE khach_hang SET ho_ten = '$ho_ten', gioi_tinh = '$gioi_tinh', cccd = '$cccd', sdtkh = '$sdtkh', emailkh = '$emailkh', dia_chi = '$dia_chi' WHERE ma_kh = '$ma_kh'";
+$sql = "UPDATE khach_hang SET ho_ten = '$ho_ten', gioi_tinh = '$gioi_tinh', cccd = '$cccd', sdtkh = '$sdtkh', emailkh = '$emailkh', matkhaukh = '$matkhaukh', dia_chi = '$dia_chi' WHERE ma_kh = '$ma_kh'";
 $kq = mysqli_query($conn, $sql) or die("Không thể cập nhật thông tin khách hàng: " . mysqli_error($conn));
 
 echo "<script language=javascript>

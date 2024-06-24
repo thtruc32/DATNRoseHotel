@@ -2,13 +2,25 @@
 include ("ketnoi.php");
 ?>
 <style>
-    a>button {
-        color: #D71313;
+    .btthem>button {
+        display: flex;
+        color: #fafafa;
         font-weight: bolder;
         border: none;
-        background-color: #BAD7E9;
+        background-color: #D04848;
         border-radius: 3px;
-        margin-left: 30px;
+        margin-left: 15px;
+        margin-top: 20px;
+        gap: 2px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .pencil {
+        color: white;
+        border: none;
+        background-color: #FFC100;
+        border-radius: 3px;
     }
 
     h6 {
@@ -16,11 +28,16 @@ include ("ketnoi.php");
         font-family: Tahoma;
         color: #40679E;
         font-weight: 600;
+        margin: 2px;
     }
-    .table th, .table td {
-        text-align: center; /* Căn giữa dữ liệu */
-        vertical-align: middle; /* Căn giữa theo chiều dọc */
-        
+
+    .table th,
+    .table td {
+        text-align: center;
+        /* Căn giữa dữ liệu */
+        vertical-align: middle;
+        /* Căn giữa theo chiều dọc */
+
     }
 </style>
 <div class="row">
@@ -29,19 +46,24 @@ include ("ketnoi.php");
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6>QUẢN LÝ LOẠI PHÒNG</h6>
             </div>
-            <a href="themQLLP.php"><button>+ Thêm</button></a>
+            <a class='btthem' href="themQLLP.php">
+
+                <button>
+                    <ion-icon name="add-circle"></ion-icon>
+                    Thêm</button></a>
 
             <div class="table-responsive p-3">
                 <table class="table align-items-center table-flush" id="dataTable">
                     <thead class="thead-light">
                         <tr>
-                            <th>Mã loại</th>
-                            <th>Loại phòng</th>
-                            <th>Diện tích</th>
-                            <th>Thông tin chung</th>
-                            <th>Số lượng</th>
-                            <th>Giá</th>
-                            <th>Tuỳ chọn</th>
+                            <th width="4%">STT</th>
+                            <th width="15%">Loại phòng</th>
+                            <th width="12%">Hình ảnh</th>
+                            <th width="15%">Diện tích</th>
+                            <th width="20%">Chi tiết</th>
+                            <th width="12%">Số lượng</th>
+                            <th width="10%">Giá</th>
+                            <th width="12%">Tuỳ chọn</th>
                         </tr>
                     </thead>
 
@@ -56,12 +78,13 @@ include ("ketnoi.php");
                             echo "<td>" . $row["ma_loai"] . "</td>";
                             $usern = $row["ma_loai"]; // Gán dữ liệu cột username vào biến $usern
                             echo "<td>" . $row["ten_loai"] . "</td>";
+                            echo "<td><img src= '" . $row["anh_loai_phong"] . "' height='80' width='100'></td>";
                             echo "<td>" . $row["dien_tich"] . "</td>";
                             echo "<td>" . $row["chi_tiet_phong"] . "</td>";
                             echo "<td>" . $row["so_luong"] . "</td>";
                             echo "<td>" . $row["gia_phong"] . "</td>";
                             echo "<td>
-                    <a href='suaQLLP.php?user=$usern'><button><ion-icon name='pencil'></ion-icon></button></a>
+                    <a href='suaQLLP.php?user=$usern'><button class='pencil'><ion-icon name='pencil'></ion-icon></button></a>
                 </td>";
                             echo "</tr>";
                         }

@@ -1,0 +1,227 @@
+
+    .image-bia {
+        width: 100%;
+        height: 500px;
+    }
+
+    .img-bia {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+    }
+
+    .form-datphong {
+        width: 100%;
+        height: auto;
+        background-color: #FEFAF6;
+        font-family: math;
+    }
+
+    .form-datphong>h4 {
+        margin-left: 211px;
+        font-size: 28px;
+        margin-top: 40px;
+        color: #b20600;
+    }
+
+    .form-datphong>p {
+        margin-left: 211px;
+        margin-top: 8px;
+        font-size: 17px;
+    }
+
+    .frame-form {
+        gap: 22px;
+        flex-direction: column;
+        display: flex;
+        width: 70%;
+        height: auto;
+        background-color: #F0F0F0;
+        margin: 20px auto;
+    }
+
+    .frame-contentt {
+        gap: 74px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .framecontentt{
+        padding-left: 76px;
+        gap: 77px;
+        display: flex;
+        justify-content: center;
+    }
+    .frame-contenttt {
+        display: flex;
+        margin-left: 171px;
+    }
+
+    .content,
+    .contentt {
+        gap: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .title-form {
+        color: dimgray;
+        font-family: math;
+        font-weight: 500;
+        font-size: 20px;
+        border-bottom: 1px solid floralwhite;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .content>input,
+    .content>select {
+        width: 274px;
+        height: 37px;
+        color: dimgray;
+    }
+
+    .contentt>select,
+    .contentt>input {
+        width: 622px;
+        height: 37px;
+        color: dimgray;
+    }
+
+    .frame-content {
+        margin-left: 170px;
+    }
+
+    .btdatphongg {
+        height: 40px;
+        margin: 2% 39% 10%;
+        display: flex;
+        width: 23%;
+        justify-content: center;
+        align-items: center;
+        font-size: 23px;
+        font-family: math;
+        font-weight: 700;
+        background-color: #EADBC8;
+        border: none;
+        border-radius: 1px;
+        color: #b20600
+    }
+
+    .btdatphongg>a {
+        color: #b20600;
+    }
+
+    .btdatphongg:hover {
+        border: 1px #b20600 solid;
+    }
+
+    .phone-button {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        background-color: #b20600;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 50px;
+        box-shadow: 0px -1px 16px rgba(246, 246, 37, 0.932);
+        font-size: 16px;
+        font-weight: bold;
+        text-decoration: none;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        animation: shake 0.5s infinite alternate;
+        transition: transform 0.2s;
+    }
+
+    .phone-button a {
+        color: white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+    }
+
+    .phone-button i {
+        margin-right: 8px;
+    }
+
+    @keyframes shake {
+        0% {
+            transform: translateX(0);
+        }
+
+        25% {
+            transform: translateX(-2px);
+        }
+
+        50% {
+            transform: translateX(2px);
+        }
+
+        75% {
+            transform: translateX(-2px);
+        }
+
+        100% {
+            transform: translateX(2px);
+        }
+    }
+
+    .phone-button:hover {
+        transform: scale(1.1);
+        box-shadow: 0px -1px 16px rgba(255, 0, 0, 0.3);
+    }
+
+    #scrollToTopBtn {
+        height: 45px;
+        width: 46px;
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
+        border: none;
+        outline: none;
+        background-color: #b20600;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 50px;
+    }
+    
+    .imgQR{
+        display: block;
+    }
+    .imgqr{
+        object-fit: cover;
+        display: flex;
+        margin: 15px auto;
+        width: 180px;
+        height: 150px;
+        justify-content: center;
+    }
+
+ .framecontent{
+    display: flex;
+    flex-direction: column;
+ }
+
+ .frcontent>span{
+    display: flex;
+    padding-left: 171px;
+    font-weight: 700;
+    line-height: 30px;
+ }
+
+ .frcontent>p{
+    display: flex;
+    padding-left: 171px;
+    line-height: 30px;
+    gap: 4px;
+   
+ }
+
+

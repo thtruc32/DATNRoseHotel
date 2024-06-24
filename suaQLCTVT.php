@@ -8,7 +8,7 @@ $sql = "SELECT * FROM chi_tiet_vat_tu WHERE ma_ctvt = '" . $usern . "'";
 $kq = mysqli_query($conn, $sql) or die("Không thể sửa vật tư" . mysqli_error());
 $row = mysqli_fetch_array($kq);
 ?>
-<link rel="stylesheet" href="chinhsua.css" type="text/css" />
+<link rel="stylesheet" href="css/chinhsua.css" type="text/css" />
 
 <form enctype="multipart/form-data" action="xulysuaQLCTVT.php" name="xulysuaQLCTVT" method="post">
     <div class="text">

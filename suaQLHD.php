@@ -8,7 +8,7 @@ $sql = "SELECT * FROM hoa_don WHERE ma_hoa_don = '".$usern."'";
 $kq = mysqli_query($conn, $sql) or die("Không thể sửa hoá đơn" . mysqli_error());
 $row = mysqli_fetch_array($kq);
 ?>
-<link rel="stylesheet" href="chinhsua.css" type="text/css"/>
+<link rel="stylesheet" href="css/chinhsua.css" type="text/css"/>
 
 <form enctype="multipart/form-data" action="xulysuaQLHD.php" name="xulysuaQLHD" method="post">
     <div class="text">

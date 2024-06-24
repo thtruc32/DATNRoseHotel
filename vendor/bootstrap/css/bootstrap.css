@@ -2930,6 +2930,7 @@ fieldset:disabled a.btn {
   border-radius: 0.25rem;
 }
 
+
 .btn-primary:hover {
   color: #fff;
   background-color: #394EEA;
@@ -6013,10 +6014,11 @@ a.badge-dark.focus {
 }
 
 
-.alert-success {
-  color: #0f6848;
-  background-color: #66bb6a;
-}
+/* .alert-success {
+  background-color: #65B741;
+  border-color: #c3e6cb;
+  font-weight: bolder;
+} */
 
 .alert-success hr {
   border-top-color: #aaebd3;

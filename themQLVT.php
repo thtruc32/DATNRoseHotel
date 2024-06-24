@@ -2,7 +2,7 @@
 include ("header.php");
 ?>
 
-<link rel="stylesheet" href="chinhsua.css" type="text/css" />
+<link rel="stylesheet" href="css/chinhsua.css" type="text/css" />
 <form enctype="multipart/form-data" action="xulythemQLVT.php" name="xulythemQLVT" method="post">
 
     <div class="text">
@@ -10,7 +10,6 @@ include ("header.php");
             THÊM THÔNG TIN VẬT TƯ MỚI
         </h4>
     </div>
-
 
     <div class="themmoi">
         <div class="them">

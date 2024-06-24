@@ -8,7 +8,7 @@ $sql = "SELECT * FROM tin_tuc WHERE ma_tin_tuc = '".$usern."'";
 $kq = mysqli_query($conn, $sql) or die("Không thể sửa tin tức: " . mysqli_error($conn));
 $row = mysqli_fetch_array($kq);
 ?>
-<link rel="stylesheet" href="chinhsua.css" type="text/css"/>
+<link rel="stylesheet" href="css/chinhsua.css" type="text/css"/>
 
 <form enctype="multipart/form-data" action="xulysuaQLTT.php" name="xulysuaQLTT" method="post">
     <div class="text">

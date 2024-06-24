@@ -2,30 +2,42 @@
 include ("ketnoi.php");
 ?>
 <style>
-    .pencil{
+    .key{
     color: white;
     border: none;
-    background-color: #40679E;
+    background-color:#D04848;
     border-radius: 3px;
     }
 
     .eye{
     color: white;
     border: none;
-    background-color: #C40C0C;
+    background-color:#65B741;
     border-radius: 3px;
     }
 
-    h6{
+    h6 {
         font-size: 1.5rem;
         font-family: Tahoma;
         color: #40679E;
-        font-weight: 600; 
-        
+        font-weight: 600;
+        margin: 2px;
     }
     .table th, .table td {
         text-align: center; /* Căn giữa dữ liệu */
         vertical-align: middle; /* Căn giữa theo chiều dọc */
+    }
+    .status-chua-xac-nhan {
+        color: #40679E;
+        font-weight: bold;
+    }
+    .status-da-xac-nhan {
+        color: #65B741;
+        font-weight: bold;
+    }
+    .status-da-huy {
+        color: #D04848;
+        font-weight: bold;
     }
 </style>
 <div class="row">
@@ -40,12 +52,12 @@ include ("ketnoi.php");
                 <table class="table align-items-center table-flush" id="dataTable">
                     <thead class="thead-light">
                         <tr>
-                            <th width="11%">Mã phiếu</th>
+                            <th width="5%">STT</th>
                             <th width="20%">Khách hàng</th>
-                            <th witdh="20%">Loại phòng</th>
+                            <th witdh="23%">Loại phòng</th>
                             <!-- <th>Nhân viên</th> -->
                             <th width="10%">Ngày đặt</th>
-                            <th width="10%">Ngày nhận</th>
+                            <th width="13%">Ngày nhận</th>
                             <!-- <th>Ngày trả</th>
                             <th>Số lượng</th>
                             <th>Tiền cọc</th> -->
@@ -76,26 +88,33 @@ include ("ketnoi.php");
                             $kq3 = mysqli_query($conn, $sql3) or die("Không thể xuất thông tin " . mysqli_error());
                             $khach_hang = mysqli_fetch_array($kq3);
 
+                            $status_class = '';
+                            switch ($row["trang_thai"]) {
+                                case 'Chưa xác nhận':
+                                    $status_class = 'status-chua-xac-nhan';
+                                    break;
+                                case 'Đã xác nhận':
+                                    $status_class = 'status-da-xac-nhan';
+                                    break;
+                                case 'Đã hủy':
+                                    $status_class = 'status-da-huy';
+                                    break;
+                            }
+
+                            echo "<tr>";
                             echo "<td>" . $row["ma_phieu_dat"] . "</td>";
                             $usern = $row["ma_phieu_dat"];
                             echo "<td>" . $khach_hang["ho_ten"] . "</td>";
                             echo "<td>" . $loai_phong["ten_loai"] . "</td>";
-                            // echo "<td>" . $nhan_vien["ho_ten"] . "</td>";
-                            // echo "<td>" . date('d/m/Y', strtotime($row["ngay_dat"])) . "</td>";
-                            // echo "<td>" . date('d/m/Y', strtotime($row["ngay_nhan"])) . "</td>";
-                            // echo "<td>" . date('d/m/Y', $row["ngay_tra"]) . "</td>";
-                            echo "<td>" . $row["ngay_dat"] . "</td>";
-                            echo "<td>" . $row["ngay_nhan"] . "</td>";
-                            // echo "<td>" . $row["ngay_tra"] . "</td>";
-                            // echo "<td>" . $row["so_luong_phong_dat"] . "</td>";
-                            // echo "<td>" . $row["tien_coc"] . "</td>";
-                            echo "<td>" . $row["trang_thai"] . "</td>";
-                            echo "<td style='display: flex;gap: 10px;justify-content: center;'>
-                        
-                            <a style='display: flex; align-items: center;' href='suaChiTietPD.php?ma_phieu_dat=$usern'><button  style='display: flex;padding: 5px;' class='eye'><ion-icon name='eye'></ion-icon></button></a>
+                            echo "<td>" . date('d/m/Y', strtotime($row["ngay_dat"])) . "</td>";
+                            echo "<td>" . date('d/m/Y', strtotime($row["ngay_nhan"])) . "</td>";
+                            echo "<td class='$status_class'>" . $row["trang_thai"] . "</td>";
+                            echo "<td>
+                        <a href='suaChiTietPD.php?ma_phieu_dat=$usern'><button class='eye'><ion-icon name='eye'></ion-icon></button></a>
+                        <a href='phanphong.php?ma_phieu_dat=$usern'><button class='key'><ion-icon name='key'></ion-icon></button></a>
                         </td>";
-                                    echo "</tr>";
-                                }
+                            echo "</tr>";
+                        }
                         ?>
                     </tbody>
                 </table>
@@ -135,7 +154,6 @@ include ("ketnoi.php");
                 "searchPlaceholder": "Tìm kiếm..."
             },
             "pageLength": 10,
-            "searching": false
         });
     });
 

@@ -13,6 +13,7 @@ if (isset($_GET['user'])) {
         echo "<p>CCCD/CMND: " . $row['cccd'] . "</p>";
         echo "<p>Số điện thoại: " . $row['sdtkh'] . "</p>";
         echo "<p>Email: " . $row['emailkh'] . "</p>";
+        echo "<p>Mật khẩu: " . str_repeat('*', strlen($row['matkhaukh'])) . "</p>";
         echo "<p>Địa chỉ: " . $row['dia_chi'] . "</p>";
     } else {
         echo "Không tìm thấy thông tin khách hàng.";

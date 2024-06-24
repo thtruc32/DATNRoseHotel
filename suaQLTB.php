@@ -9,7 +9,7 @@ $sql = "SELECT * FROM thiet_bi WHERE ma_thiet_bi = '" . $usern . "'";
 $kq = mysqli_query($conn, $sql) or die("Không thể sửa thông tin thiết bị" . mysqli_error());
 $row = mysqli_fetch_array($kq);
 ?>
-<link rel="stylesheet" href="chinhsua.css" type="text/css" />
+<link rel="stylesheet" href="css/chinhsua.css" type="text/css" />
 
 <form enctype="multipart/form-data" action="xulysuaQLTB.php" name="xulysuaQLTB" method="post">
     <div class="text">

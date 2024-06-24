@@ -2,7 +2,7 @@
 include ("header.php");
 ?>
 
-<link rel="stylesheet" href="chinhsua.css" type="text/css" />
+<link rel="stylesheet" href="css/chinhsua.css" type="text/css" />
 <form enctype="multipart/form-data" action="xulythemQLTB.php" name="xulythemQLTB" method="post">
 
     <div class="text">

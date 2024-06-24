@@ -3,27 +3,41 @@ include ("ketnoi.php");
 ?>
 
 <style>
-    a>button {
-        color: #D71313;
+    .btthem>button {
+        display: flex;
+        color: #fafafa;
         font-weight: bolder;
         border: none;
-        background-color: #BAD7E9;
+        background-color: #D04848;
         border-radius: 3px;
-        margin-left: 30px;
+        margin-left: 15px;
+        margin-top: 20px;
+        gap: 2px;
+        justify-content: center;
+        align-items: center;
     }
+
     h6 {
         font-size: 1.5rem;
         font-family: Tahoma;
         color: #40679E;
-        font-weight: 600; 
+        font-weight: 600;
+        margin: 2px;
     }
-    .table th, .table td {
-        text-align: center; /* Căn giữa dữ liệu */
-        vertical-align: middle; /* Căn giữa theo chiều dọc */
-        
+    .pencil {
+        color: white;
+        border: none;
+        background-color: #FFC100;
+        border-radius: 3px;
     }
+    .table th,
+    .table td {
+        text-align: center;
+        /* Căn giữa dữ liệu */
+        vertical-align: middle;
+        /* Căn giữa theo chiều dọc */
 
-
+    }
 </style>
 <div class="row">
     <div class="col-lg-12">
@@ -31,7 +45,9 @@ include ("ketnoi.php");
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6>QUẢN LÝ PHÒNG</h6>
             </div>
-            <a href="themQLP.php"><button>+ Thêm</button></a>
+            <a class="btthem" href="themQLP.php"> <button>
+                    <ion-icon name="add-circle"></ion-icon>
+                    Thêm</button></a>
 
             <div class="table-responsive p-3">
                 <table class="table align-items-center table-flush" id="dataTable">
@@ -49,8 +65,8 @@ include ("ketnoi.php");
                         <?php
 
                         include ("ketnoi.php");
-                        $sql="select * from phong";
-                        $kq=mysqli_query($conn,$sql) or die ("Không thể xuất thông tin nhân viên ".mysqli_error());
+                        $sql = "select * from phong";
+                        $kq = mysqli_query($conn, $sql) or die("Không thể xuất thông tin nhân viên " . mysqli_error());
 
                         while ($row = mysqli_fetch_array($kq)) {
                             $loai_phongs = $row["ma_loai"];
@@ -58,7 +74,7 @@ include ("ketnoi.php");
                             $kq2 = mysqli_query($conn, $sql2) or die("Không thể xuất thông tin" . mysqli_error());
                             $loai_phong = mysqli_fetch_array($kq2);
                             echo "<tr>";
-                            
+
                             echo "<td>" . $row["ma_phong"] . "</td>";
                             $usern = $row["ma_phong"];
                             echo "<td>" . $loai_phong["ten_loai"] . "</td>";
@@ -66,7 +82,7 @@ include ("ketnoi.php");
                             // echo "<td>" . $row["dien_tich"] . "</td>";
                             // echo "<td>" . $row["chi_tiet_phong"] . "</td>";
                             echo "<td>
-                    <a href='suaQLP.php?user=$usern'><button><ion-icon name='pencil'></ion-icon></button></a>
+                    <a href='suaQLP.php?user=$usern'><button class='pencil'><ion-icon name='pencil'></ion-icon></button></a>
                 </td>";
                             echo "</tr>";
                         }
@@ -81,35 +97,35 @@ include ("ketnoi.php");
 <?php include ("footer.php"); ?>
 
 <script>
-	$(document).ready(function () {
-		$('#dataTable').DataTable({
-			language: {
-				"decimal": "",
-				"emptyTable": "Không có dữ liệu",
-				"info": "Đang hiển thị _START_ đến _END_ của _TOTAL_ mục",
-				"infoEmpty": "Đang hiển thị 0 đến 0 của 0 mục",
-				"infoFiltered": "(đã lọc từ tổng số _MAX_ mục)",
-				"infoPostFix": "",
-				"thousands": ",",
-				"lengthMenu": "Hiển thị _MENU_ mục",
-				"loadingRecords": "Đang tải...",
-				"processing": "Đang xử lý...",
-				"search": "Tìm kiếm:",
-				"zeroRecords": "Không tìm thấy kết quả phù hợp",
-				"paginate": {
-					"first": "Đầu",
-					"last": "Cuối",
-					"next": "Tiếp",
-					"previous": "Trước"
-				},
-				"aria": {
-					"sortAscending": ": sắp xếp tăng dần",
-					"sortDescending": ": sắp xếp giảm dần"
-				},
-				"searchPlaceholder": "Tìm kiếm..."
-			},
-			"pageLength": 10,
-		});
-	});
+    $(document).ready(function () {
+        $('#dataTable').DataTable({
+            language: {
+                "decimal": "",
+                "emptyTable": "Không có dữ liệu",
+                "info": "Đang hiển thị _START_ đến _END_ của _TOTAL_ mục",
+                "infoEmpty": "Đang hiển thị 0 đến 0 của 0 mục",
+                "infoFiltered": "(đã lọc từ tổng số _MAX_ mục)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Hiển thị _MENU_ mục",
+                "loadingRecords": "Đang tải...",
+                "processing": "Đang xử lý...",
+                "search": "Tìm kiếm:",
+                "zeroRecords": "Không tìm thấy kết quả phù hợp",
+                "paginate": {
+                    "first": "Đầu",
+                    "last": "Cuối",
+                    "next": "Tiếp",
+                    "previous": "Trước"
+                },
+                "aria": {
+                    "sortAscending": ": sắp xếp tăng dần",
+                    "sortDescending": ": sắp xếp giảm dần"
+                },
+                "searchPlaceholder": "Tìm kiếm..."
+            },
+            "pageLength": 10,
+        });
+    });
 
 </script>

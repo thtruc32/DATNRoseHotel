@@ -3,7 +3,7 @@ include ("header.php");
 include ("ketnoi.php");
 ?>
 
-<link rel="stylesheet" href="chinhsua.css" type="text/css" />
+<link rel="stylesheet" href="css/chinhsua.css" type="text/css" />
 <form enctype="multipart/form-data" action="xulythemQLP.php" name="xulythemQLP" method="post">
 
     <div class="text">
@@ -14,11 +14,7 @@ include ("ketnoi.php");
 
 
     <div class="themmoi">
-        <!-- <div class="them">
-            <span>STT</span>
-            <input type="text" readonly name="ma_phong"/>
-        </div> -->
-
+ 
         <div class="them">
             <div class="thema">
                 <span>Loại phòng</span>
@@ -41,24 +37,6 @@ include ("ketnoi.php");
             </div>
         </div>
 
-        <!-- <div class="them">
-            <div class="thema">
-                <span>Diện tích phòng</span>
-                <select name="dien_tich">
-                    <option value="31-32m2">31-32m2</option>
-                    <option value="35-36m2">35-36m2</option>
-                </select>
-            </div>
-
-
-            <div class="thema">
-                <span>Chi tiết phòng</span>
-                <select name="chi_tiet_phong">
-                    <option value="2 người lớn, 2 giường đơn">2 người lớn, 2 giường đơn</option>
-                    <option value="2 người lớn, giường đôi">2 người lớn, giường đôi</option>
-                </select>
-            </div>
-        </div> -->
     </div>
     <div class="luulai">
         <input type="submit" name="luu" value="Lưu lại" />

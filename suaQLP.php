@@ -8,7 +8,7 @@ $sql = "SELECT * FROM phong WHERE ma_phong = '" . $usern . "'";
 $kq = mysqli_query($conn, $sql) or die("Không thể sửa thông tin phòng" . mysqli_error());
 $row = mysqli_fetch_array($kq);
 ?>
-<link rel="stylesheet" href="chinhsua.css" type="text/css" />
+<link rel="stylesheet" href="css/chinhsua.css" type="text/css" />
 
 <form enctype="multipart/form-data" action="xulysuaQLP.php" name="xulysuaQLP" method="post">
     <div class="text">

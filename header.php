@@ -1,6 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
 
+// Kiểm tra xem người dùng đã đăng nhập chưa
+if (!isset($_SESSION['user'])) {
+    // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
+    header("Location: dangnhap.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +24,7 @@
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="css/ruang-admin.min.css" rel="stylesheet">
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
 
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -102,7 +112,7 @@
             <h6 class="collapse-header">Phiếu đặt phòng</h6>
             <a class="collapse-item" href="QLPD.php">Phiếu đặt</a>
             <!-- <a class="collapse-item" href="QLCTPD.php">Chi tiết phiếu đặt</a> -->
-            <a class="collapse-item" href="QLPP.php">Phân phòng</a>
+            <a class="collapse-item" href="phanphong.php">Phân phòng</a>
           </div>
         </div>
       </li>
@@ -134,6 +144,12 @@
           <span>Tin tức</span>
         </a>
       </li>
+      <li class="nav-item">
+      <a class="nav-link" href="QLHA.php">
+      <i class="fas fa-fw fa-regular fa-images"></i>
+          <span>Hình ảnh</span>
+        </a>
+      </li>
      
     </ul>
     <!-- Sidebar -->
@@ -141,7 +157,7 @@
       <div id="content">
         <!-- TopBar -->
         <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
-          <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
+          <button id="sidebarToggleTop" style="color:white" class="btn btn-link rounded-circle mr-3">
             <i class="fa fa-bars"></i>
           </button>
           <ul class="navbar-nav ml-auto">
@@ -300,7 +316,16 @@
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 <img class="img-profile rounded-circle" src="img/boy.png" style="max-width: 60px">
-                <span class="ml-2 d-none d-lg-inline text-white small">Maman Ketoprak</span>
+                <span class="ml-2 d-none d-lg-inline text-white small">
+                <?php
+                    // Kiểm tra xem session có tồn tại và có chứa tên người dùng không
+                    if (isset($_SESSION['ho_ten'])) {
+                        echo '<p>' . $_SESSION['ho_ten'] . '</p>';
+                    } else {
+                        echo '<p>Chua dang nhap</p>';
+                    }
+                    ?>
+                </span>
               </a>
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="#">
@@ -316,10 +341,11 @@
                   Activity Log
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#logoutModal">
+                <!-- <a class="dropdown-item" href="dangxuat.php" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
-                </a>
+                  Đăng xuất
+                </a> -->
+                <a class="dropdown-item" href="dangxuat.php" > <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Đăng xuất</a>
               </div>
             </li>
           </ul>

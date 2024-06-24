@@ -3,33 +3,38 @@ include("ketnoi.php");
 ?>
 
 <style>
-       .pencil{
-    color: white;
-    border: none;
-    background-color: #FFC100;
-    border-radius: 3px;
-    }
-
-    .eye{
-    color: white;
-    border: none;
-    background-color: #C40C0C;
-    border-radius: 3px;
-    }
-
-    a>button{
-        color:#D71313;
-        font-weight:bolder;
-        border:none;
-        background-color: #BAD7E9;
+  .btthem>button {
+        display: flex;
+        color: #fafafa;
+        font-weight: bolder;
+        border: none;
+        background-color: #D04848;
         border-radius: 3px;
-        /* margin-left: 30px; */
+        margin-left: 15px;
+        margin-top: 20px;
+        gap: 2px;
+        justify-content: center;
+        align-items: center;
     }
-    h6{
+
+    h6 {
         font-size: 1.5rem;
         font-family: Tahoma;
         color: #40679E;
-        font-weight: 600; 
+        font-weight: 600;
+        margin: 2px;
+    }
+    .eye{
+        color: white;
+        border: none;
+        background-color: #65B741;
+        border-radius: 3px;
+    }
+    .pencil {
+        color: white;
+        border: none;
+        background-color: #FFC100;
+        border-radius: 3px;
     }
     .table th, .table td {
         text-align: center; /* Căn giữa dữ liệu */
@@ -44,20 +49,19 @@ include("ketnoi.php");
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6>QUẢN LÝ KHÁCH HÀNG</h6>
             </div>
-            <a style="margin-left:30px; margin-top: 30px;" href="themQLKH.php"><button>+ Thêm</button></a>
 
             <div class="table-responsive p-3">
                 <table class="table align-items-center table-flush" id="dataTable">
                     <thead class="thead-light">
                         <tr>
-                            <th width="5%">STT</th>
-                            <th width="30%">Họ tên khách hàng</th>
-                            <th width="17%">Giới tính</th>
-                            <th width="17%">CCCD/CMND</th>
+                            <th width="15%">Mã khách hàng</th>
+                            <th width="19%">Họ tên khách hàng</th>
+                            <th width="12%">Giới tính</th>
+                            <th width="17%">Căn cước công dân</th>
                             <th width="17%">Số điện thoại</th>
                             <!-- <th>Email</th> -->
                             <!-- <th>Địa chỉ</th> -->
-                            <th width="14%">Tuỳ chọn</th>
+                            <th width="13%">Tuỳ chọn</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -95,22 +99,29 @@ include("ketnoi.php");
 <div class="modal fade" id="customerModal" tabindex="-1" role="dialog" aria-labelledby="customerModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="customerModalLabel">Thông tin khách hàng</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+      <div class="labelinfo" >
+        <h5>Thông tin chi tiết khách hàng</h5>
       </div>
       <div class="modal-body">
         <!-- Nội dung thông tin khách hàng sẽ được tải vào đây -->
         <div id="customer-info"></div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+        <button style="color: white; background-color:#D04848; border: #fafafa;" type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
       </div>
     </div>
   </div>
 </div>
+
+<style>
+    .labelinfo{
+    padding: 15px 10px;
+    height: 60px;
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    justify-content: center;
+    }
+</style>
 
 
 <?php include ("footer.php"); ?>
@@ -156,7 +167,7 @@ $(document).ready(function() {
         
         // Gửi yêu cầu AJAX để lấy thông tin khách hàng
         $.ajax({
-            url: 'infokh.php', // Tạo tệp getCustomerInfo.php để xử lý yêu cầu này
+            url: 'infokh.php', // Tạo tệp để xử lý yêu cầu này
             type: 'GET',
             data: { user: user },
             success: function(response) {

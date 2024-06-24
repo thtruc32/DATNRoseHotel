@@ -9,7 +9,7 @@ $sql = "SELECT * FROM vat_tu WHERE ma_vat_tu = '" . $usern . "'";
 $kq = mysqli_query($conn, $sql) or die("Không thể sửa thông tin vật tư" . mysqli_error());
 $row = mysqli_fetch_array($kq);
 ?>
-<link rel="stylesheet" href="chinhsua.css" type="text/css" />
+<link rel="stylesheet" href="css/chinhsua.css" type="text/css" />
 
 <form enctype="multipart/form-data" action="xulysuaQLVT.php" name="xulysuaQLVT" method="post">
     <div class="text">
